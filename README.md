@@ -33,7 +33,7 @@ Two consequences worth being blunt about, because they decide whether this is us
 | `build_continuity_kit` | Lock the continuity rules for an angle — wardrobe, set, light direction, production register and the reference assets — so separately produced modules cut together. | `angle_modules` |
 | `write_shot_beats` | Write a module as timed beats — what is on screen, what is said, what is written — with the sound-off reading checked beat by beat. | `module`, `continuity_kit` |
 | `write_generation_prompt` | Write the generation prompt for a module with its framing limits, constraint block and variant seeds, plus the wording lint that silently changes what a generator does. | `module_beats`, `continuity_kit` |
-| `define_qa_protocol` | Define what QA receives and what it must check for these modules, including how many runs per prompt and which dimensions cannot be judged from frames alone. | `module_specs` |
+| `define_qa_protocol` | Define what QA receives and what it must check for these modules — reading whether this toolchain has runs at all before any run number is written, honouring the continuity kit's inapplicable-field markings, and naming which dimensions cannot be judged from frames alone. | `module_specs` |
 | `draft_script_pack` | Assemble the script pack for production — modules, continuity kits, prompts, the assembly map and the QA protocol — refusing to produce one when no modules were specified. | `campaign_context` |
 
 Optional inputs render as empty when omitted. Every template names that case and says
@@ -43,19 +43,20 @@ dangling clause.
 ## Part of a department
 
 This agent is one member of the **marketing video ad** department, a
-hub-orchestrator team of 7. The hub is `marketing-brief-scoper`, which locks the brief every later
+hub-orchestrator team of 8. The hub is `marketing-campaign-scoper`, which locks the brief every later
 stage reads; the other members are
 reached through it or called directly as `<alias>__<tool>`.
 
 | Agent | Stage in the pipeline |
 |---|---|
-| `marketing-brief-scoper` | 1 — interviews for the brief and freezes it (department hub) |
+| `marketing-campaign-scoper` | 1 — interviews for the brief and freezes it (department hub) |
 | `marketing-ad-researcher` | 2 — competitor harvest plan, longevity ranking, customer voice, coverage |
 | `marketing-angle-strategist` | 3 — scored angle map with auditable arithmetic |
 | `marketing-hook-writer` | 4 — the modular creative bank, built on verbatim customer language |
 | `marketing-ad-scripter` | 5 — modules, continuity kits, prompts, assembly map, QA protocol |
 | `marketing-production-planner` | 6 — blockers, tracks, cost estimate, shoot briefs, release gates |
-| `marketing-ad-tester` | 7 — clip QA, test design, readout, and the feedback loop back to 3, 4 and 5 |
+| `marketing-introgen-briefer` | 7 — hands approved creative to IntroGen as a brief, an avoid list and a briefing record (runs only when IntroGen renders; no repo of its own) |
+| `marketing-ad-tester` | 8 — clip QA, test design, readout, and the feedback loop back to 3, 4 and 5 |
 
 Each member is published independently and works on its own.
 
